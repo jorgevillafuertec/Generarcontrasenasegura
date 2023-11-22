@@ -10,5 +10,5 @@ print (a,b,"Gracisas")
 a= 3
 b = 5
 c= 7
-
-print (f"El numero {a} es el primero valor impar ")
+f= 2
+print (f"El numero {a} es el primero valor impar {b} tambien {c} tambien {f} y demas numeros")
