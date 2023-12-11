@@ -1,5 +1,5 @@
 ##Bienvenida##
-print ("Bienvenido a el software de Generacion seguro de Contraseña")
+print ("Bienvenido a el software de Generador seguro de Contraseña")
 
 ##Liberia para generar numeros, letras, signos al azar##
 import random
