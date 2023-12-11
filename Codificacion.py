@@ -1,22 +1,23 @@
 ##Bienvenida##
-print ("Bienvenido a el software de Generador seguro de Contraseña")
+print ("Bienvenido a el software de generador seguro de Contraseña")
 
-##Liberia para generar numeros, letras, signos al azar##
+##Importo la liberia para generar numeros, letras, signos al azar##
 import random
-##Libreria para ingresar a diferenctes caracteres##
+##Importo la libreria para ingresar a diferenctes caracteres##
 import string
 
-##Esta función es la principal que coordina todo el proceso##
+##función principal que coordina todo el proceso##
 def generar_contrasena():
     
-    ##Pide al usuario la longitud deseada para la contraseña#
+    ##Solicita al usuario la longitud deseada para la contraseña#
     longitud = validar_longitud()
     
-    ##si quiere incluir mayúsculas, minúsculas, números y/o símbolos##
+    ##Solicita si quiere incluir mayúsculas, minúsculas, números y símbolos##
     incluir_mayusculas = ingresar("¿Incluir mayúsculas? (Sí = 1, No = 0): ")
     incluir_minusculas = ingresar("¿Incluir minúsculas? (Sí = 1, No = 0): ")
     incluir_numeros = ingresar("¿Incluir números? (Sí = 1, No = 0): ")
     incluir_simbolos = ingresar("¿Incluir símbolos? (Sí = 1, No = 0): ")
+   
     ##Aqui toman las preferencias Ingresadas por el usuario##
     contrasena = contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos)
     print(f"Contraseña generada: {contrasena}")
@@ -42,7 +43,7 @@ def ingresar(mensaje):
         else:
             print("Por favor, ingrese 1 para Sí o 0 para No.")
 
-##Donde se genera la contraseña aleatorea utilizando la liberias string y random##
+##Genera la contraseña aleatorea utilizando la liberias string y random##
 def contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos):
     caracteres = ''
     if incluir_mayusculas:
@@ -53,8 +54,6 @@ def contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, inclu
         caracteres += string.digits
     if incluir_simbolos:
         caracteres += string.punctuation
-   
-    #Se genera la contraseña de acuerdo a lo solicitado
     contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
     return contrasena
 ##Se genera la contraseña solicitada##
