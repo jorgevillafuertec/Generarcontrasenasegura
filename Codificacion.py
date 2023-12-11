@@ -6,16 +6,18 @@ import random
 ##Libreria para ingresar a diferenctes caracteres##
 import string
 
-##Esta función es la principal que coordina todo el proceso.  y . Luego llama a 
+##Esta función es la principal que coordina todo el proceso##
 def generar_contrasena():
+    
     ##Pide al usuario la longitud deseada para la contraseña#
     longitud = validar_longitud()
+    
     ##si quiere incluir mayúsculas, minúsculas, números y/o símbolos##
     incluir_mayusculas = ingresar("¿Incluir mayúsculas? (Sí = 1, No = 0): ")
     incluir_minusculas = ingresar("¿Incluir minúsculas? (Sí = 1, No = 0): ")
     incluir_numeros = ingresar("¿Incluir números? (Sí = 1, No = 0): ")
     incluir_simbolos = ingresar("¿Incluir símbolos? (Sí = 1, No = 0): ")
-    ##Aqui toman las preferencias Ingresadas por el usuario, y toma las la liberia random y string##
+    ##Aqui toman las preferencias Ingresadas por el usuario##
     contrasena = contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos)
     print(f"Contraseña generada: {contrasena}")
 
@@ -30,6 +32,7 @@ def validar_longitud():
                 print("La longitud ingresada no es válida.")
         except ValueError:
             print("Por favor, ingrese un número válido.")
+
 ##Mensaje al solicitar la preferencia de la contraseña##
 def ingresar(mensaje):
     while True:
@@ -38,6 +41,7 @@ def ingresar(mensaje):
             return entrada == '1'
         else:
             print("Por favor, ingrese 1 para Sí o 0 para No.")
+
 ##Donde se genera la contraseña aleatorea utilizando la liberias string y random##
 def contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos):
     caracteres = ''
@@ -49,8 +53,9 @@ def contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, inclu
         caracteres += string.digits
     if incluir_simbolos:
         caracteres += string.punctuation
+   
     #Se genera la contraseña de acuerdo a lo solicitado
     contrasena = ''.join(random.choice(caracteres) for _ in range(longitud))
     return contrasena
-##Fin Generar contraseña##
+##Se genera la contraseña solicitada##
 generar_contrasena()
