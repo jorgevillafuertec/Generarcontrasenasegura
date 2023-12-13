@@ -1,6 +1,8 @@
 ##Bienvenida##
 print ("Bienvenido a el software de generador seguro de Contraseña")
 
+##Importo la liberia para encriptar##
+from cryptography.fernet import Fernet
 ##Importo la liberia para generar numeros, letras, signos al azar##
 import random
 ##Importo la libreria para ingresar a diferenctes caracteres##
@@ -21,6 +23,22 @@ def generar_contrasena():
     ##Aqui toman las preferencias Ingresadas por el usuario##
     contrasena = contrasena_aleatoria(longitud, incluir_mayusculas, incluir_minusculas, incluir_numeros, incluir_simbolos)
     print(f"Contraseña generada: {contrasena}")
+
+
+ ##Encriptar la contraseña generada##
+    clave_encriptacion = Fernet.generate_key()
+    contrasena_encriptada = encriptar_contrasena(contrasena, clave_encriptacion)
+    print(f"Contraseña encriptada: {contrasena_encriptada}")
+
+def encriptar_contrasena(contrasena, clave):
+    cipher_suite = Fernet(clave)
+    contrasena_encriptada = cipher_suite.encrypt(contrasena.encode())
+
+    original = cipher_suite.decrypt(contrasena_encriptada).decode()
+    print(f"Clave de encriptacion: {clave}")
+    print(f"Contrasena original desencriptada: {original}")
+
+    return contrasena_encriptada
 
 ##Validacion de la longitud que sea de minimo 8 y maximo 20##
 def validar_longitud():
