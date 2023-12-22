@@ -1,0 +1,18 @@
+Objetivo del Programa:
+El objetivo de este programa es generar contraseñas seguras de manera interactiva, permitiendo al usuario definir la longitud y los tipos de caracteres (mayúsculas, minúsculas, números, símbolos) que desea incluir en la contraseña. Posteriormente, encripta la contraseña generada para ofrecer una capa adicional de seguridad.
+Funcionalidades Principales del Código:
+Bienvenida y coordinación del proceso:
+
+Al iniciar, saluda al usuario y coordina todo el proceso de generación y encriptación de contraseñas.
+Solicitud de preferencias del usuario:
+
+Pregunta al usuario sobre la longitud deseada de la contraseña y si quiere incluir mayúsculas, minúsculas, números y/o símbolos en la misma.
+Validación de la longitud:
+
+Verifica que la longitud ingresada esté entre 8 y 20 caracteres para garantizar la seguridad de la contraseña.
+Generación de contraseñas aleatorias:
+
+Utiliza las preferencias ingresadas por el usuario para generar una contraseña aleatoria con caracteres al azar según las elecciones de inclusión.
+Encriptación de la contraseña generada:
+
+Utiliza la librería cryptography para encriptar la contraseña generada, mejorando su seguridad.
